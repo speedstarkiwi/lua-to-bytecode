@@ -6,12 +6,14 @@
 const char* script = "print('Im a gay lad')";
 
 int main() {
-    lua_State* L = luaL_newstate();
+    lua_State* L = luaL_newstate();//make sure we make lua state
     
     luaL_loadstring(L, script);
+    printf(script);
+    printf(" will now be ran into lua!\n");
     
-    size_t len;
-    const char* bytecode = lua_dump(L, NULL, &len);
+    size_t len;//0
+    const char* bytecode = lua_dump(L, NULL, &len);//dump it
   
     printf("You bytecode data: \n");
     
@@ -20,6 +22,7 @@ int main() {
     }
     
     lua_close(L);//clean
+    Sleep(6942000000000);//make sure console doesnt close
     
     return 0;
 }
